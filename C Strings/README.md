@@ -170,3 +170,144 @@ print(f'The sum of {num1} and {num2} is {num1 + num2}') # The sum of 5 and 10 is
 ```
 
 ## String Slicing
+
+Sebelumnya telah diketahui bahwa karakter pada string dapat diidentifikasi berdasarkan indeks menggunakan *bracket notation*.
+
+```Python
+my_str = 'Hello World!'
+
+print(my_str[0]) # H
+print(my_str[2]) # l
+print(my_str[-1]) # !
+```
+
+Dengan string slicing memungkinkan pengguna untuk mengidentifikasi sebagian dari sebuah string atau hanya bagian tertentu pada string.
+
+```Python
+string[start:stop]
+
+my_str = 'Hello World!'
+print(my_str(1:4)) # ell
+```
+
+Pengguna bisa mengekstrak karakter dari indeks tertentu ke indeks lain, cukup dipisahkan dengan titik dua `:`.
+
+Perlu diperhatikan bahwa penentuan indeks tidak bersifat inklusif.
+
+Jadi `[1:4]` hanya mengekstrak karakter dari indeks `1` hingga `3`, tidak termasuk indeks `4`.
+
+Pengguna juga bisa menghilangkan indeks awal dan akhir, yang secara default akan menggunakan indeks paling pertama `0` atau indeks akhir.
+
+```Python
+my_str = 'Hello world'
+print(my_str[8:])  # rld
+print(my_str[:8]) # Hello wo
+```
+
+Selain indeks awal dan akhir, terdapat juga parameter langkah opsional, yang digunakan untuk menentukan peningkatan antara setiap indeks dalam irisan.
+
+```Python
+my_str = 'Hello world'
+print(my_str[0:11:2])  # Hlowrd
+
+my_str = 'Hello world'
+print(my_str[::-1]) # dlrow olleH
+```
+
+## String Method
+
+Python menyediakan sejumlah metode string bawaan yang dapat digunakan oleh pengguna.
+
+- `upper()`: mengembalikan string baru dengan semua karakter diubah menjadi besar atau uppercase.
+- `lower()`: mengembalikan string baru dengan semua karakter dibuah menjadi lowercase atau kecil.
+- `strip()`: mengembalikan string baru dengan menghilangkan whitespace diawal dan akhir pada string.
+- `replace(old, new)`: Mengembalikan string baru dengan semua kemunculan kata "old" digantikan oleh "new".
+- `split(separator)`: Memisahkan string berdasarkan pemisah yang ditentukan menjadi daftar string. Jika tidak ada pemisah yang ditentukan, pemisahan dilakukan berdasarkan spasi.
+- `join(iterable)`: Menggabungkan elemen-elemen dari sebuah iterable menjadi sebuah string dengan pemisah.
+- `startswith(prefix)`: Mengembalikan nilai boolean yang menunjukkan apakah sebuah string diawali dengan awalan yang ditentukan.
+- `endswith(suffix)`: Mengembalikan nilai boolean yang menunjukkan apakah sebuah string diakhiri dengan akhiran yang ditentukan.
+- `find(substring)`: Mengembalikan indeks kemunculan pertama substring, atau -1 jika tidak ditemukan.
+- `count(substring)`: Mengembalikan jumlah kemunculan suatu substring dalam sebuah string.
+- `capitalize()`: Mengembalikan string baru dengan karakter pertama dikapitalisasi dan karakter lainnya dihuruf kecil.
+- `isupper()`: Mengembalikan True jika semua huruf dalam string adalah huruf besar dan False jika tidak.
+- `islower()`: Mengembalikan True jika semua huruf dalam string adalah huruf kecil dan False jika tidak.
+- `title()`: Mengembalikan string baru dengan huruf pertama setiap kata dikapitalisasi.
+
+```Python
+my_str = 'Hello World'
+
+# upper
+uppercase_str = my_str.upper()
+print(uppercase_str)  # HELLO WORLD
+
+# lower
+lowercase_str = my_str.lower()
+print(lowercase_str)  # hello world
+
+my_str_2 = '  Hello World  '
+
+# strip
+strip_str = my_str_2.strip()
+print(my_str_2)  # '  Hello World  '
+print(strip_str)  # 'Hello World'
+
+my_str_3 = 'hello world'
+
+# replace
+replaced_my_str = my_str.replace('hello', 'hi')
+print(replaced_my_str)  # hi world
+
+my_list = ['hello', 'world']
+
+#join
+joined_my_str = ' '.join(my_list)
+print(joined_my_str)  # hello world
+
+my_str = 'hello world'
+
+# startswith
+starts_with_hello = my_str.startswith('hello')
+print(starts_with_hello)  # True
+
+my_str = 'hello world'
+
+# endswith
+ends_with_world = my_str.endswith('world')
+print(ends_with_world)  # True
+
+my_str = 'hello world'
+
+# find
+world_index = my_str.find('world')
+print(world_index)  # 6
+
+my_str = 'hello world'
+
+# count
+o_count = my_str.count('o')
+print(o_count)  # 2
+
+my_str = 'hello world'
+
+# capitalize
+capitalized_my_str = my_str.capitalize()
+print(capitalized_my_str)  # Hello world
+
+my_str = 'hello world'
+
+# isupper
+is_all_upper = my_str.isupper()
+print(is_all_upper)  # False
+
+my_str = 'hello world'
+
+# islower
+is_all_lower = my_str.islower()
+print(is_all_lower)  # True
+
+my_str = 'hello world'
+
+# title
+title_case_my_str = my_str.title()
+print(title_case_my_str)  # Hello World
+```

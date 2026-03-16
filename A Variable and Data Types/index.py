@@ -1,76 +1,40 @@
-print('Hello World!')
-# Output: Hello World!
+name = 'John Doe'  # string
+age = 25           # integer
 
-print('My favorite colors are', 'red', 'green', 'blue')
-# Output: My favorite colors are red green blue
+my_variable_name = 'freeCodeCamp'
 
-my_integer_var = 10
-print('Integer:', my_integer_var)
+# Ini komentar satu baris
 
-my_float_var = 4.50
-print('Float:', my_float_var)
+print('Hello World')  # Output: Hello World!
 
-my_string_var = 'hello'
-print('String:', my_string_var)
+print("Halo")
+print('Halo')
 
-my_boolean_var = True
-print('Boolean:', my_boolean_var)
+print('Warna favorit saya', 'biru', 'hijau', 'merah')
+# Output: Warna favorit saya biru hijau merah
 
-my_set_var = {7, 'hello', 8.5}
-print('Set:', my_set_var) # Set: {7, 'hello', 8.5}
+my_int = 10
 
-my_dictionary_var = {'name': 'Alice', 'age': 25}
-print('Dictionary:', my_dictionary_var)
+my_float = 4.5
 
-my_tuple_var = (7, 'hello', 8.5)
-print('Tuple:', my_tuple_var)
+my_str = 'hello'
 
-my_range_var = range(5)
-print('Range:', my_range_var)
+my_bool = True
 
-my_list = [22, 'Hello world', 3.14, True]
-print(my_list)
+my_set = {7, 'hello', 8.5}
 
-my_none_var = None
-print('None:', my_none_var)
+my_dict = {'name': 'Alice', 'age': 25}
 
-my_var_1 = 'Hello world'
-my_var_2 = 21
+my_tuple = (7, 'hello', 8.5)
 
-print(type(my_var_1)) # <class 'str'>
-print(type (my_var_2)) # <class 'int'>
+my_range = range(5)
 
-my_integer_var = 10
-print(type(my_integer_var))  # <class 'int'>
+my_list = [22, 'Hello', 3.14, True]
 
-my_float_var = 4.50
-print(type(my_float_var))  # <class 'float'>
+my_none = None
 
-my_string_var = 'hello'
-print(type(my_string_var))  # <class 'str'>
+print(type(my_int))  # <class 'int'>
+print(type(my_str))  # <class 'str'>
 
-my_boolean_var = True
-print(type(my_boolean_var))  # <class 'bool'>
-
-my_set_var = {7, 'hello', 8.5}
-print(type(my_set_var))  # <class 'set'>
-
-my_dictionary_var = {'name': 'Alice', 'age': 25}
-print(type(my_dictionary_var))  # <class 'dict'>
-
-my_tuple_var = (7, 'hello', 8.5)
-print(type(my_tuple_var))  # <class 'tuple'>
-
-my_range_var = range(5)
-print(type(my_range_var))  # <class 'range'>
-
-my_list = [22, 'Hello world', 3.14, True]
-print(type(my_list)) # <class 'list'>
-
-my_none_var = None
-print(type(my_none_var))  # <class 'NoneType'>
-
-isinstance('Hello world', str) # True
-isinstance(True, bool) # True
-isinstance(42, int) # True
-isinstance('John Doe', int) # False
+isinstance('Hello', str)  # True
+isinstance(42, float)     # False

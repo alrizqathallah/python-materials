@@ -9,25 +9,25 @@
 ## Kegunaan Utama Diberbagai Bidang:
 
 1. **Data Science dan AI**:
-   - *Analisis Data*: menggunakan library seperti *Pandas* dan *Numpy* untuk mempermudah pengolahan data.
-   - *Machine Learning*: menggunakan *Tensorflow* dan *Scikit* untuk menggunakan model AI dengan lebih fleksibel.
+   - _Analisis Data_: menggunakan library seperti _Pandas_ dan _Numpy_ untuk mempermudah pengolahan data.
+   - _Machine Learning_: menggunakan _Tensorflow_ dan _Scikit_ untuk menggunakan model AI dengan lebih fleksibel.
 2. **Pengembangan Web (Backend)**:
-   - Membangun sistem yang aman dan terukur dengan framework seperti *Django*, *FastAPI* dan *Flask*.
-   - Digunakan oleh platform besar seperti *Instagram* dan *Pinterest*.
+   - Membangun sistem yang aman dan terukur dengan framework seperti _Django_, _FastAPI_ dan _Flask_.
+   - Digunakan oleh platform besar seperti _Instagram_ dan _Pinterest_.
 3. **Kemanan Siber (Cybersecurity)**:
    - Mendeteksi malware dan virus.
    - Membangun pemindaian otomatis serta menganalisis ancaman.
 4. **IoT dan Embedded System**:
-   - Berjalan baik pada mikrokomputer seperti *RaspberryPi*.
-   - Digunakan untuk proyek perangkat pintar (*smarthome*) dan stasiun pemantauan cuaca.
+   - Berjalan baik pada mikrokomputer seperti _RaspberryPi_.
+   - Digunakan untuk proyek perangkat pintar (_smarthome_) dan stasiun pemantauan cuaca.
 5. **Otomasi dan Scripting**:
-   - *Tugas Repetitif*: mengotomatiskan pengiriman email, pengolahan spreadsheet dan manajemen file.
-   - *Web Scraping*: mengambil data publik dari situs web menggunakan *Selenium* dan *BeautifulSoup*.
+   - _Tugas Repetitif_: mengotomatiskan pengiriman email, pengolahan spreadsheet dan manajemen file.
+   - _Web Scraping_: mengambil data publik dari situs web menggunakan _Selenium_ dan _BeautifulSoup_.
 6. **DevOps dan Administrasi Sistem**:
-   - Menuliskan skrip *CI/CD* dan mengelola infrastruktur.
+   - Menuliskan skrip _CI/CD_ dan mengelola infrastruktur.
    - Pemantauan server, pengelolaan log, dan pembuatan API internal.
 7. **Software Testing**:
-   - Membuat rangkaian pengujian (*test suites*) yang handal menggunakan alat seperti *PyTest*.
+   - Membuat rangkaian pengujian (_test suites_) yang handal menggunakan alat seperti _PyTest_.
 
 <br>
 
@@ -45,26 +45,26 @@
 
 - **Sumber Resmi**: Selalu unduh installer dari situs resmi [Python](https://python.org "Website resmi Python").
 - **Terminal/Command Prompt**: Alat berbasis teks untuk berinteraksi dengan komputer.
-  - **MacOS**: *Terminal*.
-  - **Windows**: *Commmand Prompt* atau *Powershell*.
-  - **Linux**: *Gnome Terminal* atau konsole.
+  - **MacOS**: _Terminal_.
+  - **Windows**: _Commmand Prompt_ atau _Powershell_.
+  - **Linux**: _Gnome Terminal_ atau konsole.
 
 ## Langkah Instalasi Berdasarkan OS
 
 1. **MacOS**:
-   - Buka situs [Python](https://python.org "Website resmi Python"), arahkan kursor ke *Downloads* dan klik versi terbaru.
+   - Buka situs [Python](https://python.org "Website resmi Python"), arahkan kursor ke _Downloads_ dan klik versi terbaru.
    - Buka file `.pkg` yang terunduh.
-   - Klik *Continue* hingga bagian *Installation Type*, lalu klik *Install*.
+   - Klik _Continue_ hingga bagian _Installation Type_, lalu klik _Install_.
    - Masukan password perangkat jika diminta dan tunggu hingag selesai.
 
 2. **Windows**:
-   - Unduh file *executeable* (`.exe`) dari menu *Download For Windows* di situs resmi.
+   - Unduh file _executeable_ (`.exe`) dari menu _Download For Windows_ di situs resmi.
    - Bukan installer tersebut.
-   - *Penting*: Centang opsi *Add python.exe to PATH* agar Python bisa diakses dari terminal manapun.
-   - Klik *Install Now*
+   - _Penting_: Centang opsi _Add python.exe to PATH_ agar Python bisa diakses dari terminal manapun.
+   - Klik _Install Now_
 
 3. **Linux**:
-   - Sebagian besar distro (*Ubuntu*, *Debian*, *Fedora*) sudah menyertakan Python secara bawaan.
+   - Sebagian besar distro (_Ubuntu_, _Debian_, _Fedora_) sudah menyertakan Python secara bawaan.
    - Cek ketersediaan melalui terminal.
    - Jika belum ada, gunakan pengelola paket bawaan distro atau unduh paket instalasi dari situs resmi.
 
@@ -74,11 +74,10 @@
   - Buka terminal dan ketik perintah berikut untuk memastikan Python terpasang: `python --version` atatu `python3 --version`
 
 - **Python 2 vs Python 3**:
-  - *Penting*: Python 2 sudah usang (*end-of-life*).
-  - Pada sistem lama (*macOS* / *Linux*), perintah `python` merujuk ke Python 2.
+  - _Penting_: Python 2 sudah usang (_end-of-life_).
+  - Pada sistem lama (_macOS_ / _Linux_), perintah `python` merujuk ke Python 2.
   - Gunakan selalu `python3` untuk pengembangan baru.
 
 ## Menajalankan Python Interpreter
 
-Anda bisa langsung mengetik kode Python secara interaktif dengan mengetik `python` atau `python2` di terminal untuk membuka *interpreter*.
-
+Anda bisa langsung mengetik kode Python secara interaktif dengan mengetik `python` atau `python3` di terminal untuk membuka _interpreter_.

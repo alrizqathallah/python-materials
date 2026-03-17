@@ -10,7 +10,7 @@ Python adalah bahasa pemrograman **high-level**, **interpreted** yang terkenal d
 
 Dibuat oleh **Guido Van Rossum**, dan pertama kali diperkenalkan pada tahun 1991. Python didesain denga filosofi keterbacaan kode, menggunakan indentasi untuk mendefinisikan blok kode, membuat Python lebih mudah dibaca dan dipahami.
 
-Python merupakan bahasa pemrograman **general-purpose**, yang dapat digunakan dalam berbagai bidang pemrograman. Mulai dari *pengembangan web*, *otomasi dan scripting*, *analisis data*, *pembelajaran mesin dan kecerdasan buatan*, hingga *IoT dan Game*.
+Python merupakan bahasa pemrograman **general-purpose**, yang dapat digunakan dalam berbagai bidang pemrograman. Mulai dari _pengembangan web_, _otomasi dan scripting_, _analisis data_, _pembelajaran mesin dan kecerdasan buatan_, hingga _IoT dan Game_.
 
 ## Mengapa Python?
 
@@ -26,17 +26,17 @@ Beberapa alasan mengapa Python sangat layak dipelajari, terlebih oleh para pemul
 
 - Diakhir 1980'an mulai menggarap Python sebagai penerus bahasa pemrograman ABC.
 - 1991, Python 0.9.0 pertama kali dirilis.
-- 2000, Python 2.0 diperkenalkan ke publik dengan fitur yang lebih baik, seperti *garbage collection*.
-- 2008, Python 3.0 dirilis, memperbaiki versi sebelumnya, namun tidak memiliki *backward-compatible* dengan versi sebelumnya (Python 2.0).
+- 2000, Python 2.0 diperkenalkan ke publik dengan fitur yang lebih baik, seperti _garbage collection_.
+- 2008, Python 3.0 dirilis, memperbaiki versi sebelumnya, namun tidak memiliki _backward-compatible_ dengan versi sebelumnya (Python 2.0).
 - 2020, Python 2 sudah usang, Python 3 menjadi satu-satunya versi aktif yang digunakan untuk pengembangan.
 
 Semua pengembangan modern menggunakan versi Python 3.
 
 ## Fitur Kunci pada Python
 
-- **Interpreted**: Python merupakan bahasa *interpreted*, dimana kode dieksekusi baris per baris tanpa harus dikompilasi.
-- **Dynamic-Type**: Python menganut sistem *dynamic-typing*, dimana pengguna tidak perlu mendeklarasikan tipe variabel secara spesifik, secara otomatis dapat dikenali oleh interpreter.
-- **Object-Oriented**: Python mendukung paradigma pemrograman modern seperti *OOP*, tetapi juga mengakakomodasi model paradigma lain seperti *procedural* dan *functional*.
+- **Interpreted**: Python merupakan bahasa _interpreted_, dimana kode dieksekusi baris per baris tanpa harus dikompilasi.
+- **Dynamic-Type**: Python menganut sistem _dynamic-typing_, dimana pengguna tidak perlu mendeklarasikan tipe variabel secara spesifik, secara otomatis dapat dikenali oleh interpreter.
+- **Object-Oriented**: Python mendukung paradigma pemrograman modern seperti _OOP_, tetapi juga mengakakomodasi model paradigma lain seperti _procedural_ dan _functional_.
 - **Extensive Standard Library**: Python memiliki library standar yang kaya, sehingg sangat memudahkan dalam penulisan dan pengembangan aplikasi.
 - **Cross-Platform**: Salah satu keunggulan utama Python adalah cross-platform, dimana Python dapat dijalankan hampir diseluruh sistem operasi.
 
@@ -87,7 +87,7 @@ Jika instalasi berhasil dan selesai, silahkan verifikasi melalui terminal dengan
 
 **Linux**:
 
-Secara umum, distro modern Linux seperti *Ubuntu*, *Debian*, *Fedora* dan lainnya sudah menyediakan Python secara bawaan.
+Secara umum, distro modern Linux seperti _Ubuntu_, _Debian_, _Fedora_ dan lainnya sudah menyediakan Python secara bawaan.
 
 Silahkan verifikasi: `python --version` atau `python3 --version`.
 
@@ -103,9 +103,72 @@ Beberapa kode editor yang dapat digunakan:
 2. **PyCharm**, berbayar, fitur lengkap.
 3. **JupyterNotebook**, alat khusus data analisis.
 
-Silahkan instal kode editor yang sesuai, disarankan untuk menggunakan *VSCode* atau *Antigravity*, karena fitur lumayan lengkap dan gratis.
+Silahkan instal kode editor yang sesuai, disarankan untuk menggunakan _VSCode_ atau _Antigravity_, karena fitur lumayan lengkap dan gratis.
 
 Python juga memiliki editor bawaan yang bisa digunakan, **IDLE**. Dengan mengetik `python` atau `python3` di terminal, akan dimuat editor bawaan Python.
 
 ## Menulis Kode Pertama Python
 
+Pengguna dapat membuka kode editor yang digunakan untuk menulis program pertama Python.
+
+Secara tradisi, para programmer biasa menulis 'Hello World' untuk mencetak pada terminal.
+
+Silahkan membuat file dengan ekstensi `.py`, contoh: `main.py` atau `hello.py`.
+
+Kemudian pada file tersebut, silahkan tuliskan kode berikut:
+
+```Python
+print('Hello World!')  # Output: Hello World!
+```
+
+untuk mengeksekuis kode program, pengguna dapat beralih ke terminal dan mengetikan:
+
+```shell
+python main.py
+```
+
+atau
+
+```shell
+python3 main.py
+```
+
+Jika cara yang dilakukan benar, pada terminal akan mengembalikan :
+
+```bash
+Hello World!
+```
+
+## Dasar Sintaks Python
+
+**Komentar**
+
+_Comments_ atau komentar digunakan sebagai catatan oleh pengguna, Python akan mengabaikan baris komentar ketikan kode dieksekusi.
+
+Menulis komentar dapat dimulai dengan `#`
+
+```Python
+# Ini adalah komentar
+print('Hello World')  # Ini juga adalah komentar
+```
+
+**Indentasi**
+
+Berbeda dengan bahasa pemrograman lain yang menggunakan `{}` untuk mendefinisikan blok kode, Python menggunakn indentasi untuk mendefinisikan blok kode
+
+```Python
+if 5 > 3:
+  print('Yes, 5 greater than 3')
+```
+
+Jika pengguna lupa untuk menempatkan indentasi, maka kode akan error.
+
+**Fungsi print()**
+
+Fungsi print digunakan untuk mencetak teks atau nilai pada terminal.
+
+```Python
+print('Hello World!')
+
+print(5 + 5) # Output: 10
+```

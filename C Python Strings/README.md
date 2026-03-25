@@ -172,3 +172,215 @@ print(f'The sum of {num1} and {num2} is {num1 + num2}') # The sum of 5 and 10 is
 ```
 
 ## Bagaimana itu String Slicing dan Cara Kerjanya?
+
+Pada materi sebelumnya telah diketahui bahwa karakter pada rankaian string dapat diidentifikasi sesuai indeksnya, yang diakses melalui `[]`.
+
+```Python
+my_str = "Hello world"
+
+print(my_str[0])  # H
+print(my_str[6])  # w
+print(my_str[-1]) # d
+```
+
+String slicing memungkinkan untuk bekerja atau memilih bagian tertentu pada sebuah string, atau memilih sebagian string.
+
+```
+string[start:stop]
+```
+
+Jika hendak mengekstrak karakter string dari indeks tertentu ke lainnya, cukup dipisahkan dengan semicolon `:` bagian awal dan akhirnya.
+
+```Python
+# String Slicing
+# string[start:stop]
+my_str = 'Hello world'
+
+print(my_str[1:4])   # ell
+```
+
+Perlu diketahui dalam contoh tersebut, index `stop` merupakan non-inklusif, artinya rangkaian hanya mengambil index 1 - 3 saja, tidak termasuk index 4.
+
+Selain itu, indeks paling awal dan akhir rangkaian string dapat ditiadakan. Dimana indeks awal secara default akan ditetapkan dengan indeks 0, dan indeks akhir adalah indeks yang paling akhir pada rangkaian string sesuai panjang string tersebut.
+
+```Python
+my_str = 'Hello world'
+
+print(my_str[:7])   # Hello w
+print(my_str[8:])   # rld
+```
+
+Perlu ditekankan bahwa string slicing tidak dapat mengubah atau memodifikasi string itu sendiri.
+
+Slicing juga dapat tidak menentukan index awal dan akhirnya untuk mencetak keseluruhan string.
+
+```Python
+my_str = 'Hello world'
+
+print(my_str[:])   # Hello world
+```
+
+Selain parameter `start` dan `stop`, ada juga parameter `step`, yang digunakan untuk melakukan peningkatan pada setiap indeks.
+
+```
+string[start:stop:step]
+```
+
+Pada contoh berikut menunjukan ekstraksi dimulai dari indeks 0, dan diakhiri pada indeks sebelum 11, dan mengekstrak setiap setiap karakter kedua
+
+```Python
+my_str = 'Hello world'
+
+print(my_str[0:11:2])   # Hlowrd
+```
+
+Juga sebuah trik untuk melakukan reverse terhadap string dengan memanfaatkan metode sebelumnya dengan menjadi parameter step menjadi `-1`.
+
+```Python
+my_str = 'Hello world'
+
+print(my_str[::-1])   # dlrow olleH
+```
+
+## Method Umum Apa Saja yang Biasa digunakan di Python
+
+Python menyediakan beberapa method string bawaan untuk mempermudah pekerjaan string.
+
+- Uppercase: `upper()`, digunakan untuk mengkonversi string menjadi bentuk karakter kapital (huruf besar).
+
+```Python
+# upper()
+my_str = 'hello world'
+
+upper_my_str = my_str.upper()
+print(upper_my_str)   # HELLO WORLD
+```
+
+- Lowercase: `lower()`, digunakan untuk mengkoversi karakter kedalam format lower (huruf kecil).
+
+```Python
+# lower()
+my_str = 'Hello World'
+
+lowercase_my_str = my_str.lower()
+print(lowercase_my_str)   # hello world
+```
+
+- Strip: `strip()`, digunakan untuk menghilangkan whitespace yang terdapat diawal dan akhir pada sebuah string.
+
+```Python
+# strip()
+my_str = '  hello world  '
+
+trimmed_my_str = my_str.strip()
+print(trimmed_my_str)   # "hello world"
+```
+
+- Replace: `replace(old, new)`, menggantikan elemen string lama dengan yang baru.
+
+```Python
+my_str = 'hello world'
+
+replaced_my_str = my_str.replace('hello', 'hi')
+print(replace_my_str)   # hi world
+```
+
+- Split: `split(seperator)`, digunakan untuk memisahkan sebuah string berdasarkan pemisah yang ditentukan, jika tidak ada pemisah, maka akan dipisah berdasarkan spasi.
+
+```Python
+# split()
+my_str = 'hello world'
+
+split_words = my_str.split()
+print(split_words)   # ['hello', 'world']
+```
+
+- Join: `join(iterable)`, digunakan untuk menggabungkan string berdasarkan seperator atau pemisah.
+
+```Python
+# join()
+my_list = ['hello', 'world']
+
+joined_my_str = ' '.join(my_list)
+print(joined_my_str)   # hello world
+```
+
+- Startswith: `startswith(prefix)`, digunakan untuk mengidentifikasi string diawali oleh prefix tertentu, dan akan mengembalikan nilai boolean.
+
+```Python
+# startswith()
+my_str = 'hello world'
+
+starts_with_hello = my_str.startswith('hello')
+print(start_with_hello)   # True
+```
+
+- Endswith: `endswith(suffix)`, digunakan untuk mengidentifikasi string diakhiri oleh suffix tertentu, dan akan mengembalikan nilai boolean.
+
+```Python
+# endswith()
+my_str = 'hello world'
+
+ends_with_world = my_str.endswith('world')
+print(ends_with_world)   # True
+```
+
+- Find: `find(subtring)`, mengembalikan indeks kemunculan pertama substring, atau -1 jika tidak ditemukan.
+
+```Python
+# find()
+my_str = 'hello world'
+
+world_index = my_str.find('world')
+print(world_index)   # 6
+```
+
+- Count: `count(substring)`, digunakan untuk menampilkan berapa kali elemen karakter muncul pada rangkaian string.
+
+```Python
+# count()
+my_str = 'hello world'
+
+o_count = my_str.count('o')
+print(o_count)   # 2
+```
+
+- Capitalize: `capitalize()`, digunakan untuk mengembalikan string baru dengan karakter pertama berupa huruf kapital dan karakter lainnya berupa huruf kecil.
+
+```Python
+# capitalize()
+my_str = 'hello world'
+
+capitalized_my_str = my_str.capitalize()
+print(capitalized_my_str)  # Hello world
+```
+
+- Is Upper: `isupper()`, mengembalikan nilai True jika semua huruf dalam string adalah huruf besar dan False jika tidak.
+
+```Python
+# isupper()
+my_str = 'hello world'
+
+is_all_upper = my_str.isupper()
+print(is_all_upper)  # False
+```
+
+- Is Lower, `islower()`, mengembalikan nilai True jika semua huruf dalam string adalah huruf kecil dan False jika tidak.
+
+```Python
+# islower()
+my_str = 'hello world'
+
+is_all_lower = my_str.islower()
+print(is_all_lower)  # True
+```
+
+- Title: `title()`, mengembalikan string baru dengan huruf pertama setiap kata dikapitalisasi.
+
+```Python
+# title()
+my_str = 'hello world'
+
+title_case_my_str = my_str.title()
+print(title_case_my_str)  # Hello World
+```

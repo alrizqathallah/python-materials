@@ -71,3 +71,100 @@ name_and_age += str(age)  # Append the age as string
 
 print(name_and_age)  # John Doe26
 
+# String Slicing
+# string[start:stop]
+my_str = 'Hello world'
+
+print(my_str[1:4])  # ell
+
+print(my_str[:7])   # Hello w
+print(my_str[8:])   # rld
+print(my_str[:])   # Hello world
+print(my_str[0:11:2])   # Hlowrd
+print(my_str[::-1])   # dlrow olleH
+
+# String Method
+
+# upper()
+my_str = 'hello world'
+
+upper_my_str = my_str.upper()
+print(upper_my_str)   # HELLO WORLD
+
+# lower()
+my_str = 'Hello World'
+
+lowercase_my_str = my_str.lower()
+print(lowercase_my_str)   # hello world
+
+# strip()
+my_str = '  hello world  '
+
+trimmed_my_str = my_str.strip()
+print(trimmed_my_str)   # "hello world"
+
+# replace()
+my_str = 'hello world'
+
+replaced_my_str = my_str.replace('hello', 'hi')
+print(replaced_my_str)   # hi world
+
+# split()
+my_str = 'hello world'
+
+split_words = my_str.split()
+print(split_words)   # ['hello', 'world']
+
+# join()
+my_list = ['hello', 'world']
+
+joined_my_str = ' '.join(my_list)
+print(joined_my_str)
+
+# startswith()
+my_str = 'hello world'
+
+starts_with_hello = my_str.startswith('hello')
+print(starts_with_hello)   # True
+
+# endswith()
+my_str = 'hello world'
+
+ends_with_world = my_str.endswith('world')
+print(ends_with_world)   # True
+
+# find()
+my_str = 'hello world'
+
+world_index = my_str.find('world')
+print(world_index)   # 6
+
+# count()
+my_str = 'hello world'
+
+o_count = my_str.count('o')
+print(o_count)   # 2
+
+# capitalize()
+my_str = 'hello world'
+
+capitalized_my_str = my_str.capitalize()
+print(capitalized_my_str)  # Hello world
+
+# isupper()
+my_str = 'hello world'
+
+is_all_upper = my_str.isupper()
+print(is_all_upper)  # False
+
+# islower()
+my_str = 'hello world'
+
+is_all_lower = my_str.islower()
+print(is_all_lower)  # True
+
+# title()
+my_str = 'hello world'
+
+title_case_my_str = my_str.title()
+print(title_case_my_str)  # Hello World

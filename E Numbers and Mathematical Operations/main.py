@@ -152,3 +152,57 @@ print(result_1)  # 8
 
 result_2 = pow(2, 3, 5)  # (2 ** 3) % 5
 print(result_2)  # 3
+
+# Augmented Assignment: Addition
+my_var = 10
+my_var += 5
+
+print(my_var)   # 15
+
+# subtraction
+count = 15
+count -= 3
+
+print(count)   # 12
+
+# multiplication
+product = 65
+product *= 7
+
+print(product)   # 455
+
+# division
+price = 100
+price /= 4
+
+print(price)   # 25.0
+
+# floor
+total_pages = 23
+total_pages //= 5
+
+print(total_pages)   # 4
+
+# modulo
+bits = 35
+bits %= 2
+
+print(bits)   # 1
+
+# exponent
+power = 2
+power **= 3
+
+print(power)   # 8
+
+# Augmented Assignment: String
+greet = 'Hello'
+greet += 'World'
+
+print(greet)   # Hello World
+
+# Multiplication String
+greet = 'Hello'
+greet *= 3
+
+print(greet)   # HelloHelloHello

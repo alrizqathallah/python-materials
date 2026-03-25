@@ -265,3 +265,152 @@ print(result_1)  # 8
 result_2 = pow(2, 3, 5)  # (2 ** 3) % 5
 print(result_2)  # 3
 ```
+
+## Bagaimana Augmented Assigment Bekerja?
+
+Augmented Assignment adalah proses penugasan yang mengkombinasikan operasi biner, menggunakan variabel dan mengoperasikannya dengan suatu nilai lain yang hasilnya akan disimpan kembali pada variabel tersebut.
+
+Sintaks dasar Augmented Assignment:
+
+```Python
+variable <operator>= value
+```
+
+Sintaks tersebut lebih efisien dari bentuk penulisan berikut.
+
+```Python
+variable = variable <operator> value
+```
+
+Berikut contoh augmentd assignment untuk menambahkan nilai 5 ke variable yang sudah ada.
+
+```Python
+# Augmented Assignment: Addition
+my_var = 10
+my_var += 5
+
+print(my_var)   # 15
+```
+
+Contoh diatas sama hal dengan .
+
+```Python
+my_var = 10
+my_var = my_var + 5
+
+print(my_var)   # 15
+```
+
+Nilai lebih dari augmented assignment adalah membuat kode lebih ringkas dan mudah dibaca, untuk memperbarui sebuah variabel. Hal tersebut mengurangi resiko redudansi dan kesalahan ketik yang serupa.
+
+Operator lain yang dapat digunakan untuk augmented assignment:
+
+- Subtraction: `-`.
+
+```Python
+# subtraction
+count = 15
+count -= 3
+
+print(count)   # 12
+```
+
+- Multiplication: `*`.
+
+```Python
+# multiplication
+product = 65
+product *= 7
+
+print(product)   # 455
+```
+
+- Division: `/`.
+
+```Python
+# division
+price = 100
+price /= 4
+
+print(price)   # 25.0
+```
+
+- Floor: `//`.
+
+```Python
+# floor
+total_pages = 23
+total_pages //= 5
+
+print(total_pages)   # 4
+```
+
+- Modulo: `%`.
+
+```Python
+# modulo
+bits = 35
+bits %= 2
+
+print(bits)   # 1
+```
+
+- Exponent: `**`.
+
+```Python
+# exponent
+power = 2
+power **= 3
+
+print(power)   # 8
+```
+
+Augmented assignment juga dapat dilakukan pada string. Seperti contoh berikut untuk menambahkan nilai pada sebuah variabel string.
+
+```Python
+# Augmented Assignment: String
+greet = 'Hello'
+greet += 'World'
+
+print(greet)   # Hello World
+```
+
+Dan perkalian pada string dapat melakukan perulangan pada string
+
+```Python
+# Multiplication String
+greet = 'Hello'
+greet *= 3
+
+print(greet)   # HelloHelloHello
+```
+
+Operator augmented assignment lain akan mengemalikan `TypeError` jika dilakukan pada string.
+
+```Python
+greet = 'Hello'
+greet -= ' World'
+
+print(greet) # TypeError: unsupported operand type(s) for -=: 'str' and 'str'
+
+
+greet = 'Hello'
+greet /= 'World'
+
+print(greet) # TypeError: unsupported operand type(s) for /=: 'str' and 'str' 
+```
+
+Python tidak bisa menggunakan pintasan tambahan seperti operator increment `++`, atau decrement `--`. Hal tersebut menjaga agar bahasa tetap jelas dan eksplisit.
+
+```Python
+my_var = 5
+
+print(+my_var)   # 5
+print(++my_var)  # 5
+print(+++my_var) # 5
+
+my_var += 1
+
+print(my_var) # 6
+```
+

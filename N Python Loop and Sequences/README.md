@@ -144,3 +144,164 @@ print(bilangan[1::2])   # Hasil: [2, 4, 6, 8]. Mulai dari index ke-1, naik dua i
 ```
 
 List adalah struktur data yang paling sering digunakan di Python. Dengan memahami konsep List, maka akan mempermudah untuk menguasai Bahasa Pemrograman Python.
+
+## Method List
+
+*Method* adalah alat bantu yang dapat digunakan untuk memodifikasi dan bekerja dengan List.
+
+### Menambahkan Item pada List
+
+**Menambahkan item menggunakan `append()`**:
+
+Method `append()` digunakan untuk menambahkan item pada List. Penggunaan method tersebut akan menambahkan item baru kedalam List, pada indeks terkahir, atau menambah indeks baru (paling belakang).
+
+```Python
+# Menambah item menggunakan `append()`
+angka = [1, 2, 3, 4, 5]
+angka.append(6)
+
+print(angka)   # Hasil: [1, 2, 3, 4, 5, 6]
+```
+
+Catatan: Menggunakan method `append()`, juga dapat digunakan untuk menambahkan List baru kedalam List (nesting list).
+
+```Python
+# Menggunakan method append() - Nesting List
+angka = [1, 3, 5]
+angka_genap = [2, 4, 6]
+angka.append(angka_genap)
+
+print(angka)   # Hasil: [1, 3, 5, [2, 4, 6]]
+```
+
+**Menambahkan item menggunakan `extend()`**:
+
+Kita juga dapat menggunakan `extend()` untuk menambahkan List. Method ini bersifat ordered (terurut), mirip dengan method `append()` yang dapat menambahkan List lain kedalam List baru atau lama, namun dengan tidak menesting list yang ditambahkan.
+
+```Python
+# Menambahkan List dengan method `extend()`
+angka = [1, 2, 3]
+angka_ditambah = [4, 5, 6]
+angka.extend(angka_ditambah)
+
+print(angka)   # Hasil: [1, 2, 3, 4, 5, 6]
+```
+
+**Menambahkan item menggunakan `insert()`**:
+
+Digunakan untuk menambahkan (menyisipkan) item pada posisi index tertentu, bukan diakhir seperti `append()`.
+
+```Python
+# Menambahkan item menggunakan method `insert()`
+angka = [1, 2, 4, 5]
+angka.insert(2, 3)   # 2 adalah index yang hendak disisipkan, dan 3 merupakan item yang dimasukan
+
+print(angka)   # [1, 2, 3, 4, 5]
+```
+
+### Menghapus Item pada List
+
+**Menggunakan `remove()`**:
+
+Method `remove()` digunakan untuk menghapus item pada sebuah List. Method ini menggunakan nilai (value) yang berada pada List tersebut.
+
+```Python
+# Menghapus item menggunakan `remove()`
+nilai = [10, 20, 30, 40, 50, 60 , 50]
+nilai.remove(50)   # statment ini akan menghapus nilai (value) 50 yang ada pada List
+
+print(nilai)   # Hasil: [10, 20, 30, 40, 60, 50]
+```
+
+Catatan: Method `remove()` hanya akan menghapus nilai pertama (nilai-sama) yang ditemui, tetapi tidak dengan nilai sama yang muncul setelahnya.
+
+**Menggunakan `pop()`**:
+
+Berbeda dengan `remove()`, `pop()` menghapus item berdasarkan nilai index-nya.
+
+```Python
+# Menghapus item pada List dengan `pop()`
+angka = [1, 2, 3, 4, 5, 6]
+angka.pop(1)   # statement ini akan menghapus nilai 2 pada List
+
+print(angka)   # Hasil: [1, 3, 4, 5, 6]
+
+angka.pop()   # statement ini akan menghapus nilai terakhir pada List, dengan tidak menambahkan argumen apapun pada method `pop()`
+
+print(angka)   # Hasil: [1, 3, 4, 5]
+```
+
+Catatan: Jika argumen pada method `pop()` tidak diberikan, maka secara bawaan, Python akan menyingkirkan nilai terakhir pada List.
+
+**Menggunakan `clear()`**:
+
+Method ini digunakan untuk menghapus semua item didalam List.
+
+```Python
+# Menghapus seluruh item pada List menggunakan method `remove()`
+angka = [1, 2, 3, 4, 5]
+angka.clear()   # statement ini akan menghapus semua item pada List
+
+print(angka)   # Hasil: []. Semua item pada list tidak akan muncul karena dihapus seleruhnya.
+```
+
+### Merapikan dan Memutar Posisi Item pada List
+
+**Menggunakan `sort()`**:
+
+Method `sort()` digunakna untuk mengurutkan item pada List berdasarkan bilangan (terbesar ke terkecil) atau sesuai abjat alpabetikal.
+
+```Python
+# Menggunakan method `sort()` untuk mengurutkan item pada List
+angka = [1, 99, 21, 87, 35, 76, 66, 55, 44]
+angka.sort()   # statement ini akan mengurutkan item pada list sesuai urutan bilangan
+
+print(angka)   # Hasil: [1, 21, 35, 44, 55, 66, 76, 87, 99]
+
+# Sesuai abjat alpabetikal
+huruf = ['e', 'a', 'f', 'd', 'c', 'b',]
+huruf.sort()
+
+print(huruf)
+```
+
+**Menggunakan `sorted()`**:
+
+Method `sorted()` sedikit berbeda dengan `sort()`. `sorted()` akan mengurutkan item pada List dengan memasukannya kedalam variabel baru. Dengan tetap membiarkan variabel lama tidak terurut (tetap acak).
+
+```Python
+# Menggunakan `sorted()` untuk mengurutkan item List
+acak = [19, 2, 35, 1, 67]
+rapi = sorted(acak)
+
+print(acak) # Tetap berantakan: [19, 2, 35, 1, 67]
+print(rapi) # Rak baru yang rapi: [1, 2, 19, 35, 67]
+```
+
+**Menggunakan `reverse()`**:
+
+Method ini digunakan untuk membalikan item dari urutan sebelumnya.
+
+```Python
+# Menggunakan method `reverse()` pada item List
+item = [5, 4, 3, 2, 1]
+item.reverse()   # statement ini akan membalikan urutan pada list (reverse)
+
+print(item)   # Hasil: [1, 2, 3, 4, 5]
+```
+
+### Mencari Index Item
+
+**Menggunakan `index()`**:
+
+Method tersebut digunakan untuk mencari tahu, suatu item terdapat pada index berapa pada sebuah item.
+
+```Python
+# Menggunakan method `index()` untuk mencari index item pada List
+bahasa = ['Python', 'Java', 'C++', 'Rust']
+print(bahasa.index('Java'))   # Hasil: 1, statement ini akan mencari dimana letak index dari 'Java', yaitu index ke-1
+```
+
+Catatan: Perlu diketahui dalam penggunaan method `index()`, jika kita mencari index dari value (item) yang tidak terdapat pada List, maka Python akan memberikan eror `ValueError`. Termasuk juga kesalahan spesifik pada item yang dituju. Dalam contoh diatas, dicari index dari value `'Java'` dan mengembalikan hasil 1 (berhasil). Tetapi jika yang kita masukan adalah `'java'` maka akan eror, karena berbeda antara `'Java'` dan `'java'`, atau biasa disebut `case-sensitive`.
+
+Method-method diatas merupakan fungsi yang dapat digunakan untuk bekerja dengan List di Python.

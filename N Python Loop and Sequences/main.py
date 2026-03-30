@@ -213,3 +213,87 @@ bahasa = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python')
 print(sorted(bahasa, reverse=True))
 # Hasilnya: ['Rust', 'Rust', 'Python', 'Python', 'Java', 'C++']
 
+# Melakukan perulangan pada List, untuk menelusuri seluruh data
+bahasa_pemrograman = ['Rust', 'Java', 'Python', 'C++']
+
+for bahasa in bahasa_pemrograman:
+  print(bahasa)
+  
+# Melakukan perulangna pada string
+for huruf in 'kode':
+  print(huruf)
+  
+# Melakukan Nested Loop
+kategori = ['Buah', 'Sayur']
+makanan = ['Apel', 'Wortel', 'Pisang']
+
+for kat in kategori:   # Perulangan Luar
+  for mak in makanan:   # Perulangan Dalam 
+    print(kat, mak)
+    
+# Perulangan dengan while
+angka_rahasia = 3
+tebakan = 0
+
+# Selama 'tebakan' tidak sama dengan 'angka_rahasia', perulangan akan tersu dilakukan.
+while tebakan != angka_rahasia:
+  # Meminta input pengguna dan mengubahnya menjadi integer
+  tebakan = int(input('Tebak angka (1 - 5): '))
+
+  if tebakan != angka_rahasia:
+    print('Salah! Coba lagi.')
+
+# Jika tebakan benar, maka cetak print berikut
+print('Kamu berhasil menebaknya')
+
+# Menggunakan `break` pada perulangan
+nama_karyawan = ['Jess', 'Naomi', 'Tom']
+
+for nama in nama_karyawan:
+    if nama == 'Naomi':
+        break  # Ketemu Naomi? Langsung BERHENTI!
+    print(nama)
+    
+# Menggunakan `continue` pada perulangan
+nama_karyawan = ['Jess', 'Naomi', 'Tom']
+
+for nama in nama_karyawan:
+    if nama == 'Naomi':
+        continue  # Ketemu Naomi? Lompati dia, lanjut ke orang berikutnya!
+    print(nama)
+    
+# Menggunakna katak kunci else pada perulangan
+kata_kata = ['sky', 'apple', 'rhythm', 'fly', 'orange']
+
+for kata in kata_kata:
+    for huruf in kata:
+        # Jika menemukan huruf vokal
+        if huruf.lower() in 'aeiou':
+            print(f"'{kata}' memiliki huruf vokal '{huruf}'")
+            break # Huruf vokal ketemu, hentikan pencarian di kata ini!
+    
+    else:
+        # Bagian ini HANYA jalan jika 'break' di atas TIDAK PERNAH tersentuh 
+        # (Artinya sudah dicari sampai ujung, tapi tidak ada vokal sama sekali)
+        print(f"'{kata}' tidak punya huruf vokal")
+        
+# Menggunakan range, menentukan batas akhir
+for angka in range(3):   # nilai argumen 3 pada range dianggap sebagai batas akhir perulangan
+  print(angka)
+  
+# Menggunakan range, menentukan titik awal dan akhir
+for angka in range(1, 5):   # nilai 1 merupakan awal dimana hitungan dimulai dari angka 1, nilai 5 merupakan jumlah perulangan yang dilakukan
+  print(angka)   # Hasil: 1 2 3 4
+  
+# Menggunakan range, menetuka langkah untuk mencetak nilai genap
+for angka in range(2, 11, 2):   # Nilai 2 merupakan bilangan awal, nilai 11 adalah batas akhir, dan nilai 2 yang terakhir adalah langkah yang dilakukan, maksudnya perulangan dilakukan 2 langkah, dari 2 ke 4 dan seterusnya sampai batas akhir di 11.
+  print(angka)   # Hasil: 2 4 6 8 10
+  
+# Mulai dari 40, berhenti sebelum 0, mundur 10 langkah setiap putaran
+for angka in range(40, 0, -10):
+    print(angka)
+    
+# Menggunakan Range untuk membuat List
+angka_genap = list(range(2, 11, 2))
+
+print(angka_genap) # Hasilnya instan: [2, 4, 6, 8, 10]

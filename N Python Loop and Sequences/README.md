@@ -510,3 +510,231 @@ print(sorted(bahasa, reverse=True))
 ```
 
 Berikut merupakan cara menggunakan method untuk membantu pengolahan data Tuple di Python.
+
+## Loop di Python
+
+Pasti akan sangat melelahkan jika harus mengulang suatu hal yang sama secara berulah. Dalam dunia pemrograman ada suatu aksi yang dilakukan secara berulang oleh komputer, hal tersebut dikenal dengan *Loop* atau perulangan.
+
+### Perulangan `for`
+
+`for` merupakan kata kunci yang digunakan untuk membuat perulangan. Seperti kita ingin menelusuri semua data pada suatu List, kita ingin mengeluarkan semua data yang ada didalam List tersebut.
+
+**Menelusuri List**:
+
+Kita bisa meminta Python mencetak setiap data yang ada pada List berikut.
+
+```Python
+# Melakukan perulangan pada List, untuk menelusuri seluruh data
+bahasa_pemrograman = ['Rust', 'Java', 'Python', 'C++']
+
+for bahasa in bahasa_pemrograman:   # statement perulangan
+  print(bahasa)   
+```
+
+Hasil dari perulangan tersebut:
+
+```shell
+Rust
+Java
+Python
+C++
+```
+
+Catatan: Perlu diperhatikan bahwa `for` memiliki blok kode untuk menghasilkan eksekusi. Perlu diingat bahwa blok kode di Python ditandai dengan indentasi pada baris setelah statement utama.
+
+**Menelusuri Teks String**:
+
+Kita juga bisa memecah sebuah string, menjadi bagian-bagian sub-string dengan menggunakan `for`.
+
+```Python
+# Melakukan perulangna pada string
+for huruf in 'kode':
+  print(huruf)
+```
+
+### Perulangan Bersarang (Nested Loops)
+
+Kita juga bisa membuat perulangan didalam perulangan.
+
+```Python
+# Melakukan Nested Loop
+kategori = ['Buah', 'Sayur']
+makanan = ['Apel', 'Wortel', 'Pisang']
+
+for kat in kategori:   # Perulangan Luar
+  for mak in makanan:   # Perulangan Dalam 
+    print(kat, mak)
+```
+
+Cara kerjanya adalah Python akan mengambil 'Buah' dan memasangkan dengan semua makanan. Setelah selesai, akan mengambil 'Sayur' dan memasangkan dengan semua makanan kembali.
+
+Hasilnya:
+
+```shell
+Buah Apel
+Buah Wortel
+Buah Pisang
+Sayur Apel
+Sayur Wortel
+Sayur Pisang
+```
+
+### Perulangan While
+
+Berbeda dengan `for`, dimana jumlah perulangan yang dilakukan sudah diketahui. `while` digunakan ketika tidak diketahui pasti kapan perulangan harus berhenti. Tetapi ada sebuah syarat yang harus dipenuhi.
+
+Seperti sebuah game tebak angka, "Selama angka yang dimaksud tertebak, maka diperbolehkan untuk terus bertanya dan menebaknya.
+
+```Python
+# Perulangan dengan while
+angka_rahasia = 3
+tebakan = 0
+
+# Selama 'tebakan' tidak sama dengan 'angka_rahasia', perulangan akan tersu dilakukan.
+while tebakan != angka_rahasia:
+  # Meminta input pengguna dan mengubahnya menjadi integer
+  tebakan = int(input('Tebak angka (1 - 5): '))
+
+  if tebakan != angka_rahasia:
+    print('Salah! Coba lagi.')
+
+# Jika tebakan benar, maka cetak print berikut
+print('Kamu berhasil menebaknya')
+```
+
+### Mengendalikan Perulangan dengan `break` dan `continue`
+
+Python memiliki kata kunci yang dapat digunakan untuk mengintervensi perulangan yang dilakukan.
+
+**Kata kunci `break`**:
+
+Kata kunci `break` akan secara otomatis memberhentikan perulangan yang terjadi meskipun tugas belum selesai dilakukan.
+
+```Python
+# Menggunakan `break` pada perulangan
+nama_karyawan = ['Jess', 'Naomi', 'Tom']
+
+for nama in nama_karyawan:
+    if nama == 'Naomi':
+        break  # Ketemu Naomi? Langsung BERHENTI!
+    print(nama)
+```
+
+Hasilnya hanya mencetak Jess. Begitu melihat 'Naomi', program langsung keluar dari perulangan, sehingga 'Tom' tidak pernah tersentuh.
+
+**Kata Kunci `continue`**:
+
+Digunakan untuk mengabaikan perulangan yang sedang berjalan, dan melanjutkan perulangan selanjutnya.
+
+```Python
+# Menggunakan `continue` pada perulangan
+nama_karyawan = ['Jess', 'Naomi', 'Tom']
+
+for nama in nama_karyawan:
+    if nama == 'Naomi':
+        continue  # Ketemu Naomi? Lompati dia, lanjut ke orang berikutnya!
+    print(nama)
+```
+
+Hasilnya mencetak Jess dan Tom. 'Naomi' dilompati begitu saja.
+
+### Memasangkan else dengan for dan while
+
+Dalam bahasa pemrograman, `else` biasanya akan dipasangkan dengan `if` saja. Namun di Python, kata kunci `else` dapat dipasangkan dengan `for` dan `while` dibagian akhir.
+
+Aturannya adalah blok `else` hanya akan dijalankan jika perulangan dilakukan dengan sesuai sampai akhir (Tidak dihentikan dengan `break`).
+
+```Python
+# Menggunakna katak kunci else pada perulangan
+kata_kata = ['sky', 'apple', 'rhythm', 'fly', 'orange']
+
+for kata in kata_kata:
+    for huruf in kata:
+        # Jika menemukan huruf vokal
+        if huruf.lower() in 'aeiou':
+            print(f"'{kata}' memiliki huruf vokal '{huruf}'")
+            break # Huruf vokal ketemu, hentikan pencarian di kata ini!
+    
+    else:
+        # Bagian ini HANYA jalan jika 'break' di atas TIDAK PERNAH tersentuh 
+        # (Artinya sudah dicari sampai ujung, tapi tidak ada vokal sama sekali)
+        print(f"'{kata}' tidak punya huruf vokal")
+```
+
+## Menggunakan Range di Loop
+
+Jika sebelumnya kita sudah mengetahui cara mengekstraksi data dari sebuah List atau Tuple dengan menggunakan perulangan `for`.
+
+Tapi bagaimana kita ingin melakukan perulanga angka tanpa data pada List atau Tuple sebanyak 10 kali.
+
+### Apa itu `range()`
+
+Fungsi `range` adalah menghasilkan deretan angka bulat secara otomatis. Memiliki tigas bagain argumen yaitu, `range(mulai, berhenti, langkah)`.
+
+**Menetukan titik berhenti**:
+
+Jika kita hanya memberikan satu nilai pada argumen `range`, maka Python menganggap nilai tersebut sebagai nilai akhir atau batas akhir.
+
+```Python
+# Menggunakan range, menentukan batas akhir
+for angka in range(3):   # nilai argumen 3 pada range dianggap sebagai batas akhir perulangan
+  print(angka)
+```
+
+Hasilnya:
+
+```Shell
+0
+1
+2
+```
+
+Catatan: Seperti urutan pada umumnya dalam pemorograman, hitungan dimualai dari bilangan 0. Dan 3 merupakan nilai yang bersifat inklusif, jadi tidak ikut dicetak karena bersifat sebagai pembatas.
+
+**Menentukan titik awal**:
+
+Jika kita tidak mau memulainya dari 0, maka kita bisa menentukan titik awal dengan menambahkan argumen pada `range`.
+
+```Python
+# Menggunakan range, menentukan titik awal dan akhir
+for angka in range(1, 5):   # nilai 1 merupakan awal dimana hitungan dimulai dari angka 1, nilai 5 merupakan jumlah perulangan yang dilakukan
+  print(angka)   # Hasil: 1 2 3 4
+```
+
+**Menentukan Ukuran Lompatan**:
+
+Bagaimana jika kita hanya akan mencetak nilai genap saja. Untuk membuat perulangan tersebut, kita bisa menentukan langkah pada `range`.
+
+```Python
+# Menggunakan range, menetuka langkah untuk mencetak nilai genap
+for angka in range(2, 11, 2):   # Nilai 2 merupakan bilangan awal, nilai 11 adalah batas akhir, dan nilai 2 yang terakhir adalah langkah yang dilakukan, maksudnya perulangan dilakukan 2 langkah, dari 2 ke 4 dan seterusnya sampai batas akhir di 11.
+  print(angka)   # Hasil: 2 4 6 8
+```
+
+### Melakukan Hitungan Mundur (Lompatan Negatif)
+
+Fungsi `range()` juga bisa berjalan mundur! Syaratnya adalah titik mulai harus lebih rendah dari titik berhenti, dan angka lompatan harus negatif.
+
+```Python
+# Mulai dari 40, berhenti sebelum 0, mundur 10 langkah setiap putaran
+for angka in range(40, 0, -10):
+    print(angka)
+```
+
+### Aturan Dalam Range
+
+- Tidak Boleh Kosong. Kita wajib memberikan nilai argumen pada `range()` minimal satu. 
+- Tidak Bisa Menggunakan Nilai Float. `range()` hanya berfungsi pada bilangan integer. Jika sengaja memasukan nilai float maka Python akan mengembalikan eror `TypeError`.
+
+### Membuat Trik dengan Range
+
+Selain dipasangkan denga `for`, `range()` juga bisa dipasangkan dengan `list()` untuk membuat List berisi angka dalam sekejap.
+
+```Python
+# Menggunakan Range untuk membuat List
+angka_genap = list(range(2, 11, 2))
+
+print(angka_genap) # Hasilnya instan: [2, 4, 6, 8, 10]
+```
+
+Fungsi range() adalah salah satu alat yang akan sangat, sangat sering kamu gunakan saat membuat program dengan Python.

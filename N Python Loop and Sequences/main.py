@@ -137,3 +137,35 @@ print(item)   # Hasil: [1, 2, 3, 4, 5]
 # Menggunakan method `index()` untuk mencari index item pada List
 bahasa = ['Python', 'Java', 'C++', 'Rust']
 print(bahasa.index('Java'))   # Hasil: 1, statement ini akan mencari dimana letak index dari 'Java', yaitu index ke-1
+
+# Tipe Data Tuple
+karyawan = ('Alice', 24, 'Rust Developer')
+
+# Mengakses Nilai didalam Tuple
+print(karyawan[1])   # Hasil: 24.
+
+# Mengakses dengan Metode Negative Indexing
+angka = (1, 2, 3, 4, 5)
+print(angka[-1])   # Hasil: 5. Mengakses index paling belakang dari Tuple.
+
+# Menggunakan fungsi tuple()
+nama = 'Jessica'
+print(tuple(nama))   # Hasil: ['J', 'e', 's', 's', 'i', 'c', 'a']
+
+# Menggunakan operator `in`, untuk mengecek nila pada Tuple
+bahasa = ('Python', 'Java', 'C++', 'Rust', 'JavaScript')
+print('Rust' in bahasa)   # Hasil: True. Karena nilai 'Rust' tersedia didalam Tuple.
+print('javaScript' in bahasa)   # Hasil: False. Karena nilai 'JavaScript' tidak tersedia didalam Tuple. Case-sensitive
+
+# Unpacking Nilai pada Tuple
+karyawan = ('Alice', 34, 'Rust Developer')
+nama, umur, pekerjaan = karyawan   # statement ini akan memecah nilai pada Tuple kedalam variabel baru yang disediakan (nama, umur dan pekerjaan)
+print(nama)   # Hasil: 'Alice'
+print(umur)   # Hasil: 34
+print(pekerjaan)   # Hasil: 'Rust Developer'
+
+# Melakuka unpacking pada satu nilai dan mengirim sisanya kesatu variabel.
+karyawan = ('Alice', 34, 'Rust Developer')
+nama, *sisanya = karyawan   # statement ini akan melakukan unpack pada nilai 'Alice' kedalam variabel nama, dan memasukan nilai lain kedalam variabel *sisanya.
+print(nama)   # Hasil: 'Alice'.
+print(*sisanya)   # Hasil: (34 Rust Developer)

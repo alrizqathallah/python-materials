@@ -305,3 +305,115 @@ print(bahasa.index('Java'))   # Hasil: 1, statement ini akan mencari dimana leta
 Catatan: Perlu diketahui dalam penggunaan method `index()`, jika kita mencari index dari value (item) yang tidak terdapat pada List, maka Python akan memberikan eror `ValueError`. Termasuk juga kesalahan spesifik pada item yang dituju. Dalam contoh diatas, dicari index dari value `'Java'` dan mengembalikan hasil 1 (berhasil). Tetapi jika yang kita masukan adalah `'java'` maka akan eror, karena berbeda antara `'Java'` dan `'java'`, atau biasa disebut `case-sensitive`.
 
 Method-method diatas merupakan fungsi yang dapat digunakan untuk bekerja dengan List di Python.
+
+## Apa itu Tuples?
+
+Mirip seperti *List*, *Tuple* juga merupakan tipe data di Python yang berfungsi untuk menyimpan nilai secara terurut. Dapat diisi dengan string, integer, boolean dan tipe data lainnya.
+
+```Python
+# Tipe Data Tuple
+karyawan = ('Alice', 24, 'Rust Developer')
+```
+
+**Perbedaan Utama**:
+
+Jika List merupakan tipe data yang dapat diubah (*mutable*), sementara Tuple merupakan tipe data yang tidak dapat diubah (*imutable*). Begitu tipe data tersebut dideklarasikan, maka isinya tidak dapat diubah.
+
+Jika dengan sengaja kita mencoba merubah isi dari Tuple, maka Python akan mengirimkan eror `TypeError`.
+
+```Python
+bahasa = ('Python', 'Java', 'C++', 'Rust')
+bahasa[0] = 'JavaScript'   # Statement yang mencoba merubah nilai pada index 0
+
+print(bahasa)   # Hasil: TypeEror. Python akan mengirimkan error.
+```
+
+### Cara Mengakses Nilai pada Tuple
+
+Meskipun nilai pada Tuple tidak dapat diubah, namun kita tetap bisa mengakses nilai yang berada didalamnya. Dengan cara yang sama dengan bagaimana kita mengakses item pada List.
+
+```Python
+# Mengakses Nilai didalam Tuple
+karyawan = ('Alice', 24, 'Rust Developer')
+print(karyawan[1])   # Hasil: 24, mengakses index ke 1 pada Tuple: 24.
+```
+
+**Mengakses Nilai dengan Negative Indexing**:
+
+Cara mengakses nilai negatif index juga dapat diterapkan di Tuple.
+
+```Python
+# Mengakses dengan Metode Negative Indexing
+angka = (1, 2, 3, 4, 5)
+print(angka[-1])   # Hasil: 5. Mengakses index paling belakang dari Tuple.
+```
+
+Catatan: Aturan dalam indexing juga berlaku dalam Tuple, dimana jika kita sengaja mengakses index yang tidak tersedia di Tuple, maka eror akan diberikan Python `IndexError`.
+
+### Membuat Tuple dari Data Lain
+
+**Menggunakan Fungsi `tuple()`**:
+
+Jika di List, kita mengenal fungsi `list()` yang dapat digunakan untuk menjadikan sebuah nilai dalam variabel menjadi bentuk List. Tuple juga memiliki fungsi serupa yaitu, `tuple()` yang akan mengkonversi nilai menjadi bentuk Tuple. Namun perlu diketahui, fungsi tersebut hanya berlaku untuk String, yang akan memecah sub-string kedalam index terurut. Tidak berlaku untuk tipe data lain diluar string.
+
+```Python
+# Menggunakan fungsi tuple()
+nama = 'Jessica'
+print(tuple(nama))   # Hasil: ['J', 'e', 's', 's', 'i', 'c', 'a']
+```
+
+**Mengecek Ketersediaan Nilai didalam Tuple dengan Opertor `in`**:
+
+Dengan operator `in`, kita bisa mengecek apakah sebuah nilai ada dialam Tuple. Hasil akan dikembalikan dalam bentuk boolean, dimana jika nilai yang dimaksud tersedia didalam Tuple maka akan dikembalikan True, dan jika tidak tersedia akan dikembalikan False.
+
+```Python
+# Menggunakan operator `in`, untuk mengecek nila pada Tuple
+bahasa = ('Python', 'Java', 'C++', 'Rust', 'JavaScript')
+print('Rust' in bahasa)   # Hasil: True. Karena nilai 'Rust' tersedia didalam Tuple.
+print('javaScript' in bahasa)   # Hasil: False. Karena nilai 'JavaScript' tidak tersedia didalam Tuple.
+```
+
+Catatan: Perlu diperhatikan dengan cermat ketika mengecek suatu nilai menggunakan operator `in` di dalam Tuple. Kondisi `case-sensitive` berlaku, jika bentuk atau format yang dicari berbeda secara eksplisit, maka akan dikembalikan False (tidak tersedia). Berbeda antara `'JavaScript'` dan `'javaScript'`.
+
+### Melakukan Unpacking dan Slicing pada Tuple
+
+**Melakukan Unpacking pada Tuple**:
+Di Tuple kita juga dapat melakukan Unpacking dan Slicing seperti di List. Metode yang digunakan juga sama persis dengan yang dilakukan di List.
+
+```Python
+# Unpacking Nilai pada Tuple
+karyawan = ('Alice', 34, 'Rust Developer')
+nama, umur, pekerjaan = karyawan   # statement ini akan memecah nilai pada Tuple kedalam variabel baru yang disediakan (nama, umur dan pekerjaan)
+print(nama)   # Hasil: 'Alice'
+print(umur)   # Hasil: 34
+print(pekerjaan)   # Hasil: 'Rust Developer'
+```
+
+Kita juga dapat melakukan unpacking pada sebagian atau satu nilai pada Tuple, dengan menggunakan operator `*`.
+
+```Python
+# Melakuka unpacking pada satu nilai dan mengirim sisanya kesatu variabel.
+karyawan = ('Alice', 34, 'Rust Developer')
+nama, *sisanya = karyawan   # statement ini akan melakukan unpack pada nilai 'Alice' kedalam variabel nama, dan memasukan nilai lain kedalam variabel *sisanya.
+print(nama)   # Hasil: 'Alice'.
+print(*sisanya)   # Hasil: (34, 'Rust Developer')
+```
+
+**Melakukan Slicing pada Tuple**:
+
+Tuple juga dapat dilakukan slicing seperti di List. Dengan menggunakan operator `:` semicolon.
+
+```Python
+# Melakukan Slicing pada Tuple
+kue = ('Pie', 'Bolu', 'Brownis', 'Pukis', 'Pancong')
+print(kue[1:3])   # Hasil: (Bolu, Brownis)
+```
+
+### Kenapa Nilai didalam Tuple Tidak Dapat Dihapus?
+
+Karena sifatnya yang immutable (permanen), kita juga tidak dapat membuang nilai yang ada didalam Tuple. Seperti menggunakan kata kunci `del` yang dapat dilakukan dengan List. Tetapi di Tuple tidak bisa dilakukan.
+
+### Kapan Harus Menggunakan Tuple dan List?
+
+- Dalam situasi dimana kita memerlukan data yang dinamis, dimana setiap nilai yang dimasukan dapat diubah dan diganti kapan saja seiring berjalannya program, maka kita memerlukan List `[]`.
+- Sementara untuk situasi yang bersifat statis atau permanen, dimana nilai tidak akan diubah kita dapat menggunakan Tuple `() `.

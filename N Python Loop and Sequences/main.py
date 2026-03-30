@@ -169,3 +169,47 @@ karyawan = ('Alice', 34, 'Rust Developer')
 nama, *sisanya = karyawan   # statement ini akan melakukan unpack pada nilai 'Alice' kedalam variabel nama, dan memasukan nilai lain kedalam variabel *sisanya.
 print(nama)   # Hasil: 'Alice'.
 print(*sisanya)   # Hasil: (34 Rust Developer)
+
+# Melakukan Slicing pada Tuple
+kue = ('Pie', 'Bolu', 'Brownis', 'Pukis', 'Pancong')
+print(kue[1:3])   # Hasil: (Bolu, Brownis)
+
+# Menggunakan Method count()
+bahasa = ('Python', 'Java', 'Rust', 'C++', 'JavaScript', 'Rust')
+
+print(bahasa.count('Rust'))   # Hasil: 2. Dalam statement tersebut diketahui bahwa Rust memiliki 2 nilai didalam tuple bahasa
+
+# Jika Nilai yang dicari tidak ada didalam Tuple
+bahasa = ('Python', 'Java', 'Rust', 'C++', 'JavaScript', 'Rust')
+
+print(bahasa.count('C#'))   # Hasil: 0.
+
+# Menggunakan method index() untuk mencari index suatu nilai didalam Tuple
+bahasa = ('Rust', 'Java', 'Python', 'C++', 'Rust')
+print(bahasa.index('Java')) # Hasilnya: 1 (Laci kedua)
+
+bahasa = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python')
+# Cari kata 'Python', tapi mulai pencarian dari laci nomor 3
+print(bahasa.index('Python', 3)) # Hasilnya: 5
+# Python mengabaikan 'Python' di laci nomor 2, dan langsung menemukan 'Python' berikutnya di laci nomor 5
+
+bahasa = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python', 'JavaScript')
+# Cari 'Python', mulai dari laci 2, tapi berhenti mencari sebelum laci 5
+print(bahasa.index('Python', 2, 5)) # Hasilnya: 2
+
+# Menggunakan Method sorted()
+angka = (13, 2, 78, 3, 45, 67, 18, 7)
+angka_rapi = sorted(angka)
+
+print(angka_rapi) # Hasilnya berupa LIST BARU: [2, 3, 7, 13, 18, 45, 67, 78]
+
+# Menggunakan key=len untu menyortir nilai di Tuple
+bahasa = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python')
+print(sorted(bahasa, key=len)) 
+# Hasilnya: ['C++', 'Rust', 'Java', 'Rust', 'Python', 'Python']
+
+# Melakukan Sortir Terbalik dengan reverse=True
+bahasa = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python')
+print(sorted(bahasa, reverse=True))
+# Hasilnya: ['Rust', 'Rust', 'Python', 'Python', 'Java', 'C++']
+

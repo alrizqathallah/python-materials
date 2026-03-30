@@ -417,3 +417,96 @@ Karena sifatnya yang immutable (permanen), kita juga tidak dapat membuang nilai 
 
 - Dalam situasi dimana kita memerlukan data yang dinamis, dimana setiap nilai yang dimasukan dapat diubah dan diganti kapan saja seiring berjalannya program, maka kita memerlukan List `[]`.
 - Sementara untuk situasi yang bersifat statis atau permanen, dimana nilai tidak akan diubah kita dapat menggunakan Tuple `() `.
+
+## Method di Tuple
+
+Python juga memberikan alat bantu untuk kita bekerja dengan Tuple.
+
+### Menghitung Suatu Nilai yang terdapat dialam Tuple
+
+Dengan method `count()` kita dapat mengetahui berapa banyak suatu nilai berada didalam sebuah Tuple.
+
+```Python
+# Menggunakan Method count()
+bahasa = ('Python', 'Java', 'Rust', 'C++', 'JavaScript', 'Rust')
+
+print(bahasa.count('Rust'))   # Hasil: 2. Dalam statement tersebut diketahui bahwa Rust memiliki 2 nilai didalam tuple bahasa
+```
+
+Jika nilai yang dicari tidak berada didalam Tuple tersebut, maka Python tidak akan mengembalikan eror, tetapi nilai 0.
+
+```Python
+# Jika Nilai yang dicari tidak ada didalam Tuple
+bahasa = ('Python', 'Java', 'Rust', 'C++', 'JavaScript', 'Rust')
+
+print(bahasa.count('C#'))   # Hasil: 0.
+```
+
+Catatan: Ketika menggunakan method `count()`, kita wajib mengisi argumen pada method. Jika method dibiarkan kosong maka Python akan mengembalikan eror `TypeError`.
+
+### Mencari Index Suatu Nilai pada Tuple
+
+Dengan method `index()` kita dapat mengetahui posisi index suatu nilai didalam sebuah Tuple.
+
+```Python
+# Menggunakan method index() untuk mencari index suatu nilai didalam Tuple
+bahasa = ('Rust', 'Java', 'Python', 'C++', 'Rust')
+print(bahasa.index('Java')) # Hasilnya: 1 (Laci kedua)
+```
+
+Catatan: Jika nilai yang dicari tidak terdapat didalam Tuple, maka Python akan mengembalikan eror `ValueError`.
+
+Terdapat teknik lebih lanjut untuk mencari index dari suatu nilai didalam Tuple. Denga menentukan argumen index yang dicari.
+
+```Python
+bahasa = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python')
+# Cari kata 'Python', tapi mulai pencarian dari laci nomor 3
+print(bahasa.index('Python', 3)) # Hasilnya: 5
+# Python mengabaikan 'Python' di laci nomor 2, dan langsung menemukan 'Python' berikutnya di laci nomor 5
+```
+
+Bisa dilakukan juga dengan menentukan nilai Mulai dan Berhenti pencarian index.
+
+```Python
+bahasa = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python', 'JavaScript')
+# Cari 'Python', mulai dari laci 2, tapi berhenti mencari sebelum laci 5
+print(bahasa.index('Python', 2, 5)) # Hasilnya: 2
+```
+
+### Merapikan isi Tuple
+
+Dengan method `sorted()`. Diketahui bahwa kita tidak dapat mengubah nilai pada Tuple, berbeda dengan List yang dapat diubah. Dengan demikian kita tidak bisa menggunakan method `sort()` di Tuple.
+
+Namun kita tetap bisa merpikan Tuple dengan menggunakan method `sorted()`, dimana nilai Tuple akan dipindahkan dari variabel lama ke variabel baru. Tanpa mengubah nilai Tuple dari variabel lama. Dengan demikian method `sorted()` dapat digunakan di Tuple.
+
+```Python
+# Menggunakan Method sorted()
+angka = (13, 2, 78, 3, 45, 67, 18, 7)
+angka_rapi = sorted(angka)
+
+print(angka_rapi) # Hasilnya berupa LIST BARU: [2, 3, 7, 13, 18, 45, 67, 78]
+```
+
+**Trik Khusus dalam Merapikan Tuple dengan `sorted()`**:
+
+Kita dapat merapikan (menyortir) nilai berdasarkan panjang elemen yang dimilikinya. Untuk melakukannya kita dapat menggunakan method `key=len`.
+
+Jika kita memiliki nilai dan ingin mengurutkannya dari kata yang paling pendek ke yang paling panjang, gunakan `key=len` (length/panjang).
+
+```Python
+# Menggunakan key=len untu menyortir nilai di Tuple
+bahasa = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python')
+print(sorted(bahasa, key=len)) 
+# Hasilnya: ['C++', 'Rust', 'Java', 'Rust', 'Python', 'Python']
+```
+
+Selain itu, kita juga dapat melakukan sorti secara terbalik dengan `reverse=True`. Secara bawaan sortir dilakukan dari A-Z atau Besar-Kecil. Jika Kita ingin membalikan, bisa menambahkan argument `reverse=True`.
+
+```Python
+# Melakukan Sortir Terbalik dengan reverse=True
+bahasa = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python')
+print(sorted(bahasa, reverse=True))
+# Hasilnya: ['Rust', 'Rust', 'Python', 'Python', 'Java', 'C++']
+```
+
+Berikut merupakan cara menggunakan method untuk membantu pengolahan data Tuple di Python.

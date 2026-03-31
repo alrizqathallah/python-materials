@@ -738,3 +738,195 @@ print(angka_genap) # Hasilnya instan: [2, 4, 6, 8, 10]
 ```
 
 Fungsi range() adalah salah satu alat yang akan sangat, sangat sering kamu gunakan saat membuat program dengan Python.
+
+## Menggunakan Enumerate dan Zip
+
+Setelah mengetahui cara melakukan perulangan dengan `for`. Selain mengambil nilai dari sebuah List, terkadan juga kita ingin mengetahui nilai tersebut merupakan nilai keberapa, atau membaca dua List sekaligus.
+
+Python memiliki dua fungsi yang dapat membatu melakukan hal tersebut yaitu `enumerate()` dan `zip()`.
+
+### `enumerate()`
+
+Ketika kita memiliki List bahasa, dimana kita ingin mencetaknya dengan nomor urut, biasanya kita juga akan membuat variabel untuk membuat nomor urut secara manual.
+
+```Python
+# Melakukan perulangan denga nomor urut dengan variabel manual
+bahasa_pemrograman = ['Python', 'Java', 'C++', 'Rust']
+
+nomor = 0   # Nomor untuk urutan manual
+
+for bahasa in bahasa_pemrograman:
+  print(f'{nomor} adalah bahasa {bahasa}')
+  nomor += 1
+```
+
+Python memberikan solusi untuk melakukan hal tersebut jauh lebih simpel, menggunakan fungsi `enumerate()`. Berfungsi memberikan urutan nomor indeks pada perulangan yang dibuat secara otomatis.
+
+```Python
+# Menggunakan enumerate() dalam perulangan
+bahasa_pemrograman = ['Python', 'Java', 'C++', 'Rust']
+
+for nomor, bahasa in enumerate(bahasa_pemrograman):
+  print(f'{nomor} adalah bahasa {bahasa}')
+```
+
+Fungsi `enumarate()` melakukan urutan dari bilangan 0, berlaku umum di Python. Jika kita ingin melakukan urutan dari bilangan 1, maka kita bisa menambahkan argumen kedua pada fungsi, sesuai bilangan awal atau urutan awal.
+
+```Python
+# Menggunakan enumerate() dalam perulangan dan memberikan argumen titi awal
+bahasa_pemrograman = ['Python', 'Java', 'C++', 'Rust']
+
+for nomor, bahasa in enumerate(bahasa_pemrograman, 1):
+  print(f'{nomor} adalah bahasa {bahasa}')
+```
+
+### `zip()`
+
+Bagiamana jika disuatu kondisi, kita memiliki dua List yang memiliki data yang berketerkaitan. List pertama berisi nama karyawan, dan List kedua berisi ID karyawan. Kemudian, kita ingin mencetak kedua List tersebut secara bersamaan.
+
+Dalam kondisi tersebut, kita dapat menggunakan fungsi `zip()`. Ibarat sebuah resleting yang mengunci sebelah kiri dan kanan secara bersamaan, lalu menjadikan satu pasangan Tuple.
+
+Contoh:
+
+```Python
+# Menggunakan zip()
+karyawan = ['Alrizq', 'Damara', 'Rocky', 'Wayan']
+id_karyawan = [1, 2, 3, 4]
+
+data_karyawan = zip(karyawan, id_karyawan)   # statement ini menampung operasi dari zip yang menggabungkan dua List menjadi satu
+print(data_karyawan)
+```
+
+Kemampuan terbaik zip akan sangat berguna ketika dipasangkan dengan `for`. Dimana kita bisa membaca dua List secara paralel (bersamaan):
+
+```Python
+# Menggunakan zip dengan for
+karyawan = ['Alrizq', 'Damara', 'Rocky', 'Wayan']
+id_karyawan = [1, 2, 3, 4]
+
+# Melakuakan pembongkaran pasangan nama dan id secara bersamaan
+for nama, id in zip(karyawan, id_karyawan):
+  print(f'Nama: {nama}')
+  print(f'ID: {id}')
+  print('---')
+```
+
+### Kesimpulan
+
+- Kita dapat menggunakan `enumerate()` jika kita membutuhkan data beserta nomor urutnya.
+- Kita dapat menggunakan `zip()`, jika kita butuh untuk membaca dua atau lebih List secara bersamaan.
+
+## List Comprehension
+
+Biasanya, ketika kita hendak membuat List berisikan angka genap 0 - 20, kita harus menyiapkan List kosong, membuat Loop, lalu melakukan if, dan memasukannya satu per satu dengan append().
+
+```Python
+# cara lama membuat List yang berisikan angka genap
+angka_genap = []
+
+for angka in range(21):
+  if angka % 2 == 0:   # melakukan pengecekan jika bilangan habis dibagi dua, berarti bilangan genap
+    angka_genap.append(angka)
+
+print(angka_genap)   # Hasil: berisikan bilangan genap
+```
+
+**Menggunakan cara List Comprehension**:
+
+Jika kita perlu membuat beberapa kode baris seperti diatan, Python memungkinkan kita untuk membuat hal yang sama hanya dengan baris kode yang lebih sedikit, dengan memberikan statement langsung didalam kurung siku `[]`.
+
+```Python
+# Menggunakan cara List Comprehension
+angka_genap = [angka for angka in range(21) if angka % 2 == 0]
+
+print(angka_genap)   # Hasil: berisikan bilangan genap
+```
+
+Cara membaca kode diatas yang lebih simple:
+
+"Masukkan `angka` (hasil akhir) -- dari setiap `angka` di dalam `range(21)` -- tapi HANYA JIKA `angka % 2 == 0`."
+
+**Bagaimana jika ada `if` dan `else`**:
+
+Jika kita ingin menggunakan `if` dan `else` sekaligus, maka aturannya sedikir berubah. Kedua statement tersebut harus diletakan didepan sebelum statement `for`.
+
+```Python
+# Menggunakan if dan else dalam List Comprehension
+angka = [1, 2, 3, 4, 5]
+
+# Memasang bilangan genap dengan 'Genap' dan bilangan ganjil dengan 'Ganjil'
+hasil = [(a, 'Genap') if a % 2 == 0 else (a, 'Ganjil') for a in angka]
+
+print(angka)   # Hasil: bilangan genap akan diberi label 'Genap', bilangan ganjil akan diberi label 'Ganjil'
+```
+
+### Menggunakan `filter()` (Bouncer)
+
+Jika kita memiliki List besar, dan hanya ingin mengambil value dengan syarat tertentu saja, gunakan `filter()`. Fungsi ini butuh dua hal: aturan dan data aslinya.
+
+contoh:
+
+```Python
+# Menggunakan filter
+kata_kata = ['pohon', 'langit', 'gunung', 'sungai', 'awan', 'matahari']
+
+# 1. membuat aturan untuk fungsi yang dijalankan
+def apakah_kata_panjang(kata):
+  return len(kata) > 4   # hanya boleh masuk jika huruf lebih dari 4
+
+# 2. menggunakan filter() dan ubah kembali hasilnya menjadi List
+kata_panjang = list(filter(apakah_kata_panjang, kata_kata))
+
+print(kata_panjang)
+# Hasilnya: ['pohon', 'langit', 'gunung', 'sungai', 'matahari'] 
+# ('awan' tidak ikut karena hurufnya cuma 4) 
+```
+
+### Fungsi `map()`
+
+Berbeda dengan filter yang membuang data, `map()` bertugas mengubah/memodifikasi semua isi list secara masal menggunakan suatu rumus.
+
+Misalnya, kita punya suhu dalam ukuran celsius dan ingin mengubahnya dalam bentuk fahrenheit
+
+```Python
+# Menggunakan map
+celcius = [0, 10, 20, 30, 40]
+
+# 1. Buat rumus pengubah
+def ke_fahrenheit(suhu):
+  return (suhu * 9/5) + 32
+
+# 2. Gunakan map untuk menerapkan rumus ke semua suhu didalam list
+fahrenheit = list(map(ke_fahrenheit, celcius))
+
+print(fahrenheit)
+# Hasil: [32.0, 50.0, 68.0, 86.0 104.0]
+```
+
+### Fungsi `sum()`
+
+Fungsi sum merupakan fungsi paling sederhana dan berguna. Jika kita memiliki List bersikan angka dan ingin menjumlah totalnya, cukup panggil `sum()`
+
+```Python
+# Menggunakan sum
+angka = [5, 10, 15, 20]
+total = sum(angka)
+
+print(total)   # Hasil: 50
+```
+
+**Trik Tambahan**:
+
+Bagaimana jika kamu sudah memiliki saldo awal sebesar 10, lalau ingin menambahkan semua angka di List ke Saldo tersebut, kita bisa menambahkan `start`.
+
+```Python
+# Menambahkan start pada sum
+angka = [5, 10, 15, 20]
+
+# Menambahkan total angka (50) dengan saldo awal (10)
+total_akhir = sum(angka, start=10) 
+
+print(total_akhir) # Hasilnya: 60
+```
+
+Konsep List Comprehension beserta fungsi map() dan filter() mungkin terasa agak mengintimidasi dan sulit dibaca pada awalnya. Itu sangat wajar! Semakin sering kamu menulis kode Python, matamu akan semakin terbiasa dan kamu akan sangat menyukai seberapa ringkas kodenya nanti.

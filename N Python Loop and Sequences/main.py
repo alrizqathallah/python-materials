@@ -297,3 +297,95 @@ for angka in range(40, 0, -10):
 angka_genap = list(range(2, 11, 2))
 
 print(angka_genap) # Hasilnya instan: [2, 4, 6, 8, 10]
+
+# Melakukan perulangan denga nomor urut dengan variabel manual
+bahasa_pemrograman = ['Python', 'Java', 'C++', 'Rust']
+
+nomor = 0   # Nomor untuk urutan manual
+
+for bahasa in bahasa_pemrograman:
+  print(f'{nomor} adalah bahasa {bahasa}')
+  nomor += 1
+  
+# Menggunakan enumerate() dalam perulangan
+bahasa_pemrograman = ['Python', 'Java', 'C++', 'Rust']
+
+for i, bahasa in enumerate(bahasa_pemrograman):
+  print(f'{i} adalah bahasa {bahasa}')
+  
+# Menggunakan enumerate() dalam perulangan dan memberikan argumen titi awal
+bahasa_pemrograman = ['Python', 'Java', 'C++', 'Rust']
+
+for nomor, bahasa in enumerate(bahasa_pemrograman, 1):
+  print(f'{nomor} adalah bahasa {bahasa}')
+
+# Menggunakan zip()
+karyawan = ['Alrizq', 'Damara', 'Rocky', 'Wayan']
+id_karyawan = [1, 2, 3, 4]
+
+print(list(zip(karyawan, id_karyawan)))
+
+data_karyawan = list(zip(karyawan, id_karyawan))   # statement ini menampung operasi dari zip yang menggabungkan dua List menjadi satu baru
+print(data_karyawan)
+
+# Menggunakan for dan zip secara bersamaan
+# Melakuakan pembongkaran pasangan nama dan id secara bersamaan
+for nama, id in zip(id_karyawan, karyawan):
+  print(f'Nama: {nama}')
+  print(f'ID: {id}')
+  print('---')
+  
+# cara lama membuat List yang berisikan angka genap
+angka_genap = []
+
+for angka in range(21):
+  if angka % 2 == 0:   # melakukan pengecekan jika bilangan habis dibagi dua, berarti bilangan genap
+    angka_genap.append(angka)
+
+print(angka_genap)   # Hasil: berisikan bilangan genap
+
+# Menggunakan cara List Comprehension
+angka_genap = [angka for angka in range(21) if angka % 2 == 0]
+
+print(angka_genap)   # Hasil: berisikan bilangan genap
+
+# Menggunakan filter
+kata_kata = ['pohon', 'langit', 'gunung', 'sungai', 'awan', 'matahari']
+
+# 1. membuat aturan untuk fungsi yang dijalankan
+def apakah_kata_panjang(kata):
+  return len(kata) > 4   # hanya boleh masuk jika huruf lebih dari 4
+
+# 2. menggunakan filter() dan ubah kembali hasilnya menjadi List
+kata_panjang = list(filter(apakah_kata_panjang, kata_kata))
+
+print(kata_panjang)
+# Hasilnya: ['pohon', 'langit', 'gunung', 'sungai', 'matahari'] 
+# ('awan' tidak ikut karena hurufnya cuma 4) 
+
+# Menggunakan map
+celcius = [0, 10, 20, 30, 40]
+
+# 1. Buat rumus pengubah
+def ke_fahrenheit(suhu):
+  return (suhu * 9/5) + 32
+
+# 2. Gunakan map untuk menerapkan rumus ke semua suhu didalam list
+fahrenheit = list(map(ke_fahrenheit, celcius))
+
+print(fahrenheit)
+# Hasil: [32.0, 50.0, 68.0, 86.0 104.0]
+
+# Menggunakan sum
+angka = [5, 10, 15, 20]
+total = sum(angka)
+
+print(total)   # Hasil: 50
+
+# Menambahkan start pada sum
+angka = [5, 10, 15, 20]
+
+# Menambahkan total angka (50) dengan saldo awal (10)
+total_akhir = sum(angka, start=10) 
+
+print(total_akhir) # Hasilnya: 60

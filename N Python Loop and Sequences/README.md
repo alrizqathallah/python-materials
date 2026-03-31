@@ -930,3 +930,103 @@ print(total_akhir) # Hasilnya: 60
 ```
 
 Konsep List Comprehension beserta fungsi map() dan filter() mungkin terasa agak mengintimidasi dan sulit dibaca pada awalnya. Itu sangat wajar! Semakin sering kamu menulis kode Python, matamu akan semakin terbiasa dan kamu akan sangat menyukai seberapa ringkas kodenya nanti.
+
+## Python Lambda Function
+
+### Apa itu Fungsi Lambda
+
+Sejauh ini, jika kita ingin membuat fungsi untuk memangkatkan angka (kuadrat), kita menuliskannya secara resmi dan memberinya nama sepert berikut.
+
+```Python
+# Menggunakna Fungsi biasa
+def kuadrat(angka):
+  return angka ** 2
+
+print(kuadrat(4))   # Hasil: 16
+```
+
+Dalam kasus tersebut kita dapat menyingkatnya hanya dengan satu baris kode saja, dengan Lambda Function. Kita tidak perlu memberinya nama (itulah kenapa disebut sebagai Anonymous Function atau Fungsi Anonim).
+
+```Python
+# Menggunakan Fungsi Lambda
+lambda angka: angka ** 2
+```
+
+Cara membacanya: `"Sebuah fungsi tanpa nama, yang menerima input 'angka', lalu langsung mengembalikan hasil dari 'angka dipangkatkan 2'."` (Perhatikan bahwa kita bahkan tidak perlu menulis kata return!).
+
+### Kapan waktu yang tepat menggunakan Lambda
+
+Fungsi sangat berguna ketika dioperasikan dengan fungsi lain seperti `filter()` dan `map()`.
+
+Seperti ketika kita mencoba menyaring bilangan genap dari sebuah List. Dibanding kita membuat fungsi khusus untuk menyaring bilangan genap, kita bisa langsung menyisipkan `lambda` didalam filter.
+
+```Python
+# Menggunakna Lambda untuk menyaring nilai genap
+angka = [1, 2, 3, 4, 5]
+
+# Menyaring angka genap langsung dalam satu baris
+angka_genap = list(filter(lambda x: x % 2 == 0, angka))
+
+print(angka_genap)   # Hasil: [2, 4]
+```
+
+Di sini, lambda x: x % 2 == 0 bertindak sebagai fungsi "sekali pakai" yang mengecek apakah angka tersebut habis dibagi dua.
+
+### Best Practice Lambda Function
+
+Beberapa kesalahan yang sering dilakukan oleh Pemula.
+
+- Jangan memberi nama pada fungsi tanpa nama (Lambda).
+
+Sering kali pemula menyimpan fungsi Lambda ke dalam sebuah variabel (seolah-olah memberinya nama).
+
+```Python
+# Kesalahan dalam penggunaan Lambda oleh Pemula
+angka = [1, 2, 3, 4, 5]
+
+# JANGAN LAKUKAN INI! Ini menghilangkan esensi "Anonim" dari Lambda
+kuadrat = lambda x: x ** 2 
+hasil = list(map(kuadrat, angka))
+```
+
+Cara yang benar:
+
+Jika fungsimu butuh nama karena akan dipanggil berkali-kali, gunakanlah def biasa!
+
+```Python
+angka = [1, 2, 3, 4, 5]
+
+def kuadrat(x):
+    return x ** 2
+
+hasil = list(map(kuadrat, angka))
+```
+
+- Jangan Lambda yang terlalu rumit
+
+Filosofi Python adalah kode harus mudah dibaca. Jika logikamu butuh if-else yang panjang dan rumus matematika yang rumit, jangan paksa dijejalkan ke dalam satu baris Lambda.
+
+Cara yang salah:
+
+```Python
+hasil = (lambda x: (x**2 + 2*x - 1) if x > 0 else (x**3 - x + 4))(3)
+print(hasil) # Hasilnya 14, tapi matamu lelah membacanya
+```
+
+Cara yang benar:
+
+Buatlah fungsi biasa yang rapi dan terstruktur. Komputer mungkin tidak peduli, tapi teman setimmu (atau dirimu di masa depan) akan sangat berterima kasih!
+
+```Python
+def hitung_rumus(x):
+    if x > 0:
+        return x**2 + 2*x - 1
+    else:
+        return x**3 - x + 4
+
+print(hitung_rumus(3)) # Hasilnya 14, dan sangat mudah dipahami!
+```
+
+## Kesimpulan
+
+Gunakan Lambda jika kamu butuh fungsi sederhana, singkat, dan hanya dipakai sekali lewat (seperti di dalam map atau filter). Gunakan def jika logikanya mulai rumit atau akan digunakan berkali-kali di tempat lain!

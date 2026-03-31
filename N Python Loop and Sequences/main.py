@@ -389,3 +389,27 @@ angka = [5, 10, 15, 20]
 total_akhir = sum(angka, start=10) 
 
 print(total_akhir) # Hasilnya: 60
+
+# Menggunakna Fungsi biasa
+def kuadrat(angka):
+  return angka ** 2
+
+print(kuadrat(4))   # Hasil: 16
+
+# Menggunakan Fungsi Lambda
+lambda angka: angka ** 2
+
+# Menggunakna Lambda untuk menyaring nilai genap
+angka = [1, 2, 3, 4, 5]
+
+# Menyaring angka genap langsung dalam satu baris
+angka_genap = list(filter(lambda x: x % 2 == 0, angka))
+
+print(angka_genap)   # Hasil: [2, 4]
+
+# Kesalahan dalam penggunaan Lambda oleh Pemula
+angka = [1, 2, 3, 4, 5]
+
+# JANGAN LAKUKAN INI! Ini menghilangkan esensi "Anonim" dari Lambda
+kuadrat = lambda x: x ** 2 
+hasil = list(map(kuadrat, angka))

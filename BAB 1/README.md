@@ -349,3 +349,70 @@ Coba buat sebuah *file* baru (misalnya `kasir.py`) dan susun program dengan alur
        - **Tantangan Perulangan:** Gunakan perulangan `for` untu, mencetak kalimat `"Terima kasih telah berbelanja!"` sebanyak **3 kali** dibagian paling bawah struk.
    - **Jika uangnya tidak cukup:**
        - Cetak pesan peringatan, misalnya: `"Maaf, uang Anda tidak cukup untuk membayar pesanan ini."`
+
+**Praktik:**
+
+```Python
+nama_barang = "mushaf"
+harga_satuan = 15000
+jumlah_beli = 2
+uang_pelanggan = 50000
+
+total_harga = harga_satuan * jumlah_beli
+
+if uang_pelanggan >= total_harga:
+  for i in range(3):
+    print("Terima kasih telah berbelanja!")
+else:
+  print("Maaf, uang Anda tidak cukup untuk membayar pesanan ini.")
+```
+
+```Terminal
+Terima kasih telah berbelanja!
+Terima kasih telah berbelanja!
+Terima kasih telah berbelanja!
+```
+
+Jika kita melihat kembali instruksi skenarionya, ada satu detail kecil yang terlewat. Kasir yang baik tentunya harus memberikan informasi belanja dan uang kembalian kepada pelanggannya.
+Saat ini, program baru mengucapkan terma kasih saja.
+
+Mari kita sempurnakan *Mini Project* agar benar-benar siap saji. Di dalam bagian `if` (tepat sebelum perulangan `for`), coba tambahkan instruksi untuk:
+1. Menghitung uang kembalian (buat variabel baru bernama `kembalian` yang isinya adalah hasil pengurangan `uang_pelanggan` dengan `total harga`).
+2. Menampilkan teks detail pesanan menggunakan `print()` yang berisi: nama barang, total harga, dan jumlah uang kembalian.
+
+**Praktik:**
+
+```Python
+nama_barang = "mushaf"
+harga_satuan = 15000
+jumlah_beli = 2
+uang_pelanggan = 50000
+
+total_harga = harga_satuan * jumlah_beli
+
+if uang_pelanggan >= total_harga:
+   kembalian = uang_pelanggan - total_harga
+   
+   print("Barang:", nama_barang)
+   print("Jumlah dibeli:", jumlah_beli)
+   print("Total Harga:", total_harga)
+   print("Jumlah Dibayar:", uang_pelanggan)
+   print("Jumlah Kembalian:", kembalian)
+
+  for i in range(3):
+    print("Terima kasih telah berbelanja!")
+else:
+  print("Maaf, uang Anda tidak cukup untuk membayar pesanan ini.")
+
+```
+
+```Terminal
+Barang: mushaf
+Jumlah dibeli: 2
+Total Harga: 30000
+Jumlah Dibayar: 50000
+Jumlah Kembalian: 20000
+Terima kasih telah berbelanja!
+Terima kasih telah berbelanja!
+Terima kasih telah berbelanja!
+```

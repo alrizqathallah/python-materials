@@ -5,8 +5,6 @@ uang_pelanggan = 50000
 
 total_harga = harga_satuan * jumlah_beli
 
-kembalian = uang_pelanggan - total_harga
-
 if uang_pelanggan >= total_harga:
    kembalian = uang_pelanggan - total_harga
    
